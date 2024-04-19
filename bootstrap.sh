@@ -9,9 +9,9 @@ declare -a packages=()
 if [[ ! $(command -v ellipsis) ]]; then
   curl ellipsis.sh | sh
 else
-  for pkg in "${packages[@]}"; do
+  if [[ ! $(ls -A ./ellipsis/packages) ]]; then
     ellipsis install ${pkg}
-  done
+  fi
 fi
 
 source ./commands.sh
