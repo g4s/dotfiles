@@ -1,4 +1,4 @@
-dotfile repo with a twist
+# dotfile repo with a twist
 
 This repo is my personal attempt to get a highly flexible framework to assemble my so called dotfiles. The primary
 intention was to provide a simple way to deploy this configs to new machines and/or to workingspaces like 
