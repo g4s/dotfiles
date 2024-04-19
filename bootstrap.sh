@@ -10,7 +10,14 @@ if [[ ! $(command -v ellipsis) ]]; then
   curl ellipsis.sh | sh
 else
   if [[ ! $(ls -A ./ellipsis/packages) ]]; then
-    ellipsis install ${pkg}
+    for pkg in "${packages[@]}"; do
+      if [[ ${pkg} == "*/*" ]]; then
+        pkg = $( echo ${pkg} | cut -d "/" -f 2)
+      fi
+      if [[ ! -d "./ellipsis/packages/${pkg}" ]]; then
+        ellipsis install ${pkg}
+      fi
+    done
   fi
 fi
 
