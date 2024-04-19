@@ -2,23 +2,26 @@
 #
 # central bash bootstrapping script
 
-# ensure ellipsis and ellipsis-packages are present on system
-# ellipsis is a small, but powerfull dotfile manager
-# https://github.com/ellipsis/ellipsis
 declare -a packages=()
-if [[ ! $(command -v ellipsis) ]]; then
-  curl ellipsis.sh | sh
-else
-  if [[ ! $(ls -A ./ellipsis/packages) ]]; then
-    for pkg in "${packages[@]}"; do
-      if [[ ${pkg} == "*/*" ]]; then
-        pkg = $( echo ${pkg} | cut -d "/" -f 2)
-      fi
-      if [[ ! -d "./ellipsis/packages/${pkg}" ]]; then
-        ellipsis install ${pkg}
-      fi
-    done
+
+function initateSystem() {
+  # ensure ellipsis and ellipsis-packages are present on system
+  # ellipsis is a small, but powerfull dotfile manager
+  # https://github.com/ellipsis/ellipsis
+  if [[ ! $(command -v ellipsis) ]]; then
+    curl ellipsis.sh | sh
+  else
+    if [[ ! $(ls -A ./ellipsis/packages) ]]; then
+      for pkg in "${packages[@]}"; do
+        if [[ ${pkg} == "*/*" ]]; then
+          pkg = $( echo ${pkg} | cut -d "/" -f 2)
+        fi
+        if [[ ! -d "./ellipsis/packages/${pkg}" ]]; then
+          ellipsis install ${pkg}
+        fi
+      done
+    fi
   fi
-fi
+}
 
 source ./commands.sh
