@@ -61,7 +61,7 @@ function installEllipsis() {
 # ARGUMENTS
 #   None
 #######################################
-function initateSystem() {
+function dis() {
   echo "welcome to DIS - dotfile initiate system"
   echo ""
   echo "Do you want to install ellipsis dotfile manager?"
@@ -74,5 +74,5 @@ function initateSystem() {
 }
 
 ### ENTRYPOINT
-initateSystem
-source ./commands.sh
+source ${0}         # this will source the current script and provide
+                    # access to the defined functions.
