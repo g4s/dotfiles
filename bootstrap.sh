@@ -10,6 +10,7 @@ function initateSystem() {
   # https://github.com/ellipsis/ellipsis
   if [[ ! $(command -v ellipsis) ]]; then
     curl ellipsis.sh | sh
+    export PATH=~/.ellipsis/bin:$PATH
   else
     if [[ ! $(ls -A ./ellipsis/packages) ]]; then
       for pkg in "${packages[@]}"; do
