@@ -52,6 +52,7 @@ function installEllipsis() {
   done
 }
 
+
 #######################################
 # initiate dotfile deployment
 #
