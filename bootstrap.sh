@@ -18,6 +18,7 @@ function initateSystem() {
           pkg = $( echo ${pkg} | cut -d "/" -f 2)
         fi
         if [[ ! -d "./ellipsis/packages/${pkg}" ]]; then
+          echo "installing ellipsis package ${pkg}"
           ellipsis install ${pkg}
         fi
       done
