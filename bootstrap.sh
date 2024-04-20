@@ -6,9 +6,7 @@
 # This script uses the "Google Shell Style Guide"
 # --> https://google.github.io/styleguide/shellguide.html
 
-
 declare -a packages=()
-
 
 #######################################
 # This will install the ellipsis package manager and will also ask, if the 
@@ -54,6 +52,15 @@ function installEllipsis() {
   done
 }
 
+#######################################
+# initiate dotfile deployment
+#
+# GLOBALS
+#   None
+#
+# ARGUMENTS
+#   None
+#######################################
 function initateSystem() {
   echo "welcome to DIS - dotfile initiate system"
   echo ""
